@@ -14,6 +14,7 @@ set autowrite     " Automatically :write before running commandsa
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
+color atom
 
 filetype plugin indent on
 
