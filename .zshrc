@@ -1,6 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/danh.dang/.oh-my-zsh
 
+#Ruby setup
+export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
+
 ZSH_THEME="powerlevel9k/powerlevel9k"
 export TERM="xterm-256color"
 
