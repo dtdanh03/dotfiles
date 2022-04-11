@@ -14,6 +14,7 @@ set autowrite     " Automatically :write before running commandsa
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
+
 color atom
 
 filetype plugin indent on
@@ -43,7 +44,7 @@ nnoremap <C-l> <C-w>l
 " Autowrite after build command
 set autowrite
 set ic
-set clipboard=unnamedplus
+set clipboard=unnamed
 set paste
 set hls
 set nrformats=

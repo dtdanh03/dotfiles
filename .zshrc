@@ -1,21 +1,18 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/danh.dang/.oh-my-zsh
+export ZSH=/Users/danh/.oh-my-zsh
 
-#Ruby setup
-export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
-export TERM="xterm-256color"
-
-#Customize theme
-#Install it first: "git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs newline)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL9K_SHOW_CHANGESET=true
 
-plugins=(git xcode)
+plugins=(git xcode zsh-syntax-highlighting zsh-autosuggestions)
+
 source $ZSH/oh-my-zsh.sh
+
+bindkey '^ ' autosuggest-accept
 
 setopt autocd
 alias c="clear"
@@ -24,19 +21,12 @@ alias cat="bat"
 
 eval "$(hub alias -s)"
 
+# GO path when using `go install`
+export PATH=$PATH:$HOME/go/bin
+eval "$(compass shell)"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_FIND_FILE_COMMAND='ag -l'
-
-# Golang setup
-export GOPATH=$HOME/Desktop/go
-export PATH=$PATH:$GOPATH/bin
-eval "$(sextant shell)"
-
-# Load Zsh tools for syntax highlighting and autosuggestions
-HOMEBREW_FOLDER="/usr/local/share"
-source "$HOMEBREW_FOLDER/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$HOMEBREW_FOLDER/zsh-autosuggestions/zsh-autosuggestions.zsh"
-bindkey "^ " autosuggest-accept
+export FZF_FIND_FILE_COMMAND='rg -l'
 
 # Tmux setup
 export PATH=$PATH:$HOME/bin 
@@ -51,3 +41,10 @@ ensure_tmux_is_running() {
 }
 
 ensure_tmux_is_running
+
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
+
+
