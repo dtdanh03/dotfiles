@@ -19,7 +19,6 @@ alias c="clear"
 alias o="open"
 alias cat="bat"
 
-eval "$(hub alias -s)"
 eval "$(rbenv init - zsh)"
 
 # GO path when using `go install`
