@@ -1,9 +1,15 @@
+#oh-my-zsh
+#powerlevel10k theme
+#zsh plugins
+#rbenv
+
 bat
 diff-so-fancy
 ffmpeg
 fzf
 hub
 go
+node
 jq
 ripgrep
 tldr
